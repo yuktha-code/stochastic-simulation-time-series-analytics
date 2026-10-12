@@ -15,3 +15,7 @@ R-based analytics work spanning stochastic processes, market simulation, ARIMA/A
 
 ## R packages
 See `R_packages.txt`.
+
+## Audited European options pricing extension
+
+The independently testable [European option pricing and payoff module](options_pricing/README.md) includes Black–Scholes–Merton prices, dividend-adjusted parity, five Greeks and eight illustrative expiry strategies. The source interactive notebook was corrected for a premium-sign error before this module was published. [Open the cleaned demonstration notebook](options_pricing/validated_strategy_demo.ipynb) or run `python -m pytest options_pricing/tests -q` (9 GitHub Actions tests passing). These are analytical examples, not real Kotak contracts or achieved strategy profits.
