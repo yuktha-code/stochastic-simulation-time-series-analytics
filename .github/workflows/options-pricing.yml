@@ -1,0 +1,22 @@
+name: Validated European option pricing
+on:
+  push:
+    paths:
+      - 'options_pricing/**'
+      - '.github/workflows/options-pricing.yml'
+  pull_request:
+    paths:
+      - 'options_pricing/**'
+      - '.github/workflows/options-pricing.yml'
+  workflow_dispatch:
+
+jobs:
+  option-pricing-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r options_pricing/requirements.txt
+      - run: python -m pytest options_pricing/tests -q
